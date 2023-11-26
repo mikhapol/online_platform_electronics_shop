@@ -16,6 +16,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
 
+import app_factory.apps
+import app_individual.apps
+import app_retail.apps
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 dot_env = os.path.join(BASE_DIR / '.env', )
@@ -54,10 +58,20 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
+    'django_filters',
 
     'drf_yasg',
+    'django_celery_beat',
 
     'users.apps.UsersConfig',
+
+    'app_factory.apps.AppFactoryConfig',
+    'app_individual.apps.AppIndividualConfig',
+    'app_retail.apps.AppRetailConfig',
+
+
+    'corsheaders',
+
 
 ]
 
